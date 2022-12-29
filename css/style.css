@@ -119,7 +119,7 @@ input:checked + label{
     text-align: center;
 }
 
-@media (max-width: 360px){
+@media (max-width: 320px){
     .contenedor-botones-ataques {
         display: flex;
         flex-direction: column;
