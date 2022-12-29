@@ -25,7 +25,7 @@ function iniciarJuego(){
             sectionSeleccionarMascota.style.display = 'none';
 
             let sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque');
-        sectionSeleccionarAtaque.style.display = 'block';
+        sectionSeleccionarAtaque.style.display = 'flex';
 
             let inputHipodoge = document.getElementById('hipodoge');
 
@@ -128,20 +128,28 @@ function iniciarJuego(){
         }
 
         function crearMensaje(resultado){
-            let sectionMensajes = document.getElementById('mensajes');
+            let sectionResultados = document.getElementById('mensajes');
+            sectionResultados.style.display = 'flex';
+            let sectionMensajes = document.getElementById('resultado');
+            let ataqueDelJugador = document.getElementById('ataque-del-jugador');
+            let ataqueDelEnemigo = document.getElementById('ataque-del-enemigo');
 
-            let parrafo = document.createElement('p');
-            parrafo.innerHTML = 'Tu mascota ataco con ' + ataqueJugador + 
-            ' la mascota del enemigo ataco con ' + ataqueEnemigo +' ' + resultado;
-            sectionMensajes.appendChild(parrafo);
+            let nuevoAtaqueDelJugador = document.createElement('p')
+            let nuevoAtaqueDelEnemigo = document.createElement('p')
+
+            sectionMensajes.innerHTML = resultado;
+            nuevoAtaqueDelJugador.innerHTML = ataqueJugador;
+            nuevoAtaqueDelEnemigo.innerHTML = ataqueEnemigo;
+
+            
+            ataqueDelJugador.appendChild(nuevoAtaqueDelJugador);
+            ataqueDelEnemigo.appendChild(nuevoAtaqueDelEnemigo);
         }
 
         function crearMensajeFinal(resultadoFinal){
-            let sectionMensajes = document.getElementById('mensajes');
+            let sectionMensajes = document.getElementById('resultado');
 
-            let parrafo = document.createElement('p');
-            parrafo.innerHTML = resultadoFinal;
-            sectionMensajes.appendChild(parrafo);
+            sectionMensajes.innerHTML = resultadoFinal;
 
             let botonFuego = document.getElementById('boton-fuego');
 
@@ -159,7 +167,7 @@ function iniciarJuego(){
         botonMascotaJugador.disabled = true;
 
         let sectionReiniciar = document.getElementById('reiniciar');
-         sectionReiniciar.style.display = 'block';
+         sectionReiniciar.style.display = 'flex';
         }
 
         function combate(){
